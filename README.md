@@ -31,6 +31,8 @@ O power bi disponibiliza três ambientes de trabalho;
         * Gráfico de colunas, linhas, área: Para mostar valores ao longo do tempo.
         * Gráfico de pizza: Para mostar porcentagem de até 4 elementos no máximo, acima de 4 elementos o gráfico fica poluido visualmente.
         * Cartão: Para mostrar um único valor (faturamento, produto mais vendido, total de clientes...)
+        * Indicador: Para mostrar porcentagem.
+        * Segmentação de dados: Usado para filtrar dados (lista suspensa).
         * Arrastar a coluna desejada para dentro do campo do da ferramenta visual escolhida.
         * Somando os valores de uma coluna: dentro da aba "campo" escolha a operação de soma.
         * Para mostrar o item mais vendido: Filtros/ arraste a coluna que contem o nome dos itens para o campo "neste visual"/em "tipo de filtro" selecionar N superior/ em "mostrar itens selecione superior e o numero 1/em "por valor" selecione qual coluna usar para ranquear o item mais vendido (quantidade vendida)/aplicar filtro
@@ -40,6 +42,7 @@ O power bi disponibiliza três ambientes de trabalho;
 ## Fórmulas DAX (Data Analysis Expression)
 DAX são fórmulas prontas do Power BI, e algumas até lembram um pouco o Excel. Então com uma fórmula DAX você consegue somar valores (SUM), calcular a média de valores
 (AVERAGE), contar (COUNT), e mito mais.
+
 Para criar uma fórmula basta clicar com o botão direito em qualquer lugar da sua tabela e selecionar **nova medida**. Veja a baixo alguns exemplos:
 1. Criar Medidas
     * São cálculos dinâmicos que dependem do contexto da visualização.
@@ -53,13 +56,39 @@ Para criar uma fórmula basta clicar com o botão direito em qualquer lugar da s
     * Geram tabelas baseadas em cálculos, úteis para segmentação de dados.
     * Exemplo: `TabelaFiltrada = FILTER(Tabela, Tabela[Categoria] = "Eletrônicos")`.
 
+4. Calculo entre equações DAX
+    * Não precisa informar o nome da tabela, apenas o nome da função dax já criada.
+    * Exemplo: `Qualidade = ([Quant. produzida]) / ([Quant. produzida] + [Quant. rejeitada])`
+
+
 **Dica**: Aperte a tecla TAB para habilitar a fórmula depois de começar a digitar.
+**Dica**: Para pular uma linha dentro da área para escrever a formula, aperte *shift* + *enter*.
 
 Ao criar uma medida, a princípio, logo de cara, nada acontece. Mas vemos que
 na lista de Campos são adicionadas novas informações, com um símbolo de
 calculadora. Isso significa que acabamos de criar uma nova medida. Porém, só conseguimos
 visualizar estes resultados no nosso relatório, colocando essas medidas em
 algum gráfico.
+
+### Funções de Agregação:
+TotalVendas = SUM(Tabela[Vendas])
+MédiaVendas = AVERAGE(Tabela[Vendas])
+
+### Funções de Filtragem:
+Permite usar filtros junto com as fórmulas: Nome_qualquer = CALCULATE(expressão(), condição_1(), condição_2(), condição_3()).
+* Horas Produtivas = CALCULATE(SUM('BaseProdução'[Total Horas]), 'BaseProdução'[Ocorrência]=BLANK()). Para esse cálculo nós vamos fazer a soma de horas, mas filtrando
+apenas as informações da coluna Ocorrência que são vazias (BLANK).
+* Horas Paradas = CALCULATE(SUM('BaseProdução'[Total Horas]), 'BaseProdução'[Ocorrência]<>BLANK()): Para segundo cálculo nós vamos somar as horas, só que agora vamos filtrar
+as informações da coluna Ocorrência que são diferentes de vazio (BLANK).
+
+Vendas2024 = CALCULATE(SUM(Tabela[Vendas]), YEAR(Tabela[Data]) = 2024)
+
+### Funções de Tempo (Time Intelligence):
+VendasAnoPassado = CALCULATE(SUM(Tabela[Vendas]), PREVIOUSYEAR(Tabela[Data]))
+
+### Funções Lógicas:
+AltoDesempenho = IF(Tabela[Lucro] > 1000, "Bom", "Regular")
+
 
 
 
