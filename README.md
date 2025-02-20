@@ -73,6 +73,7 @@ algum gráfico.
 ### Funções de Agregação:
 TotalVendas = SUM(Tabela[Vendas])
 MédiaVendas = AVERAGE(Tabela[Vendas])
+total de linhas da tabela = COUNTROWS(nome_da_tabela)
 
 ### Funções de Filtragem:
 Permite usar filtros junto com as fórmulas: Nome_qualquer = CALCULATE(expressão(), condição_1(), condição_2(), condição_3()).
