@@ -98,19 +98,15 @@ uma informação de
 um gráfico sem que
 você precise alterar o seu Dashboard.
 
-O primeiro passo é **criar uma nova página** para
+1. **crie uma nova página** para
 que possamos criar um novo visual para a nossa
 Tooltip. Dentro dessa nova página nós vamos fazer 2
 configurações:
-1. Alterar em Formato > Informação da Página
-Alterar o Nome da Página (opcional)
-Ativar dica de ferramenta.
-2. Tamanho da Página
-Alterar tipo para ‘Dica de Ferramenta’ (Tooltip em
-Português).
-
-
-
+2. Habitie a nova página para funcionar como uma tooltip: Na aréa de ferramentas de visualização/Formato da página/ na área de `Informação da Página`/ habilitar a opção `permitir usar como dica de ferramenta`.
+3. Tamanho da Página: ir até a guia Exibição/Exibição de página/ e selecionar a opção **Ajustar à Página**.
+4. Crie as ferramentas visuais da página de tooltip, que apareceram quando selecionarmos uma passamos o mouse em uma ferramenta visual do dashboard.
+5. Configurar para que essa Tooltip apareça dentro do dashboard ao passar o mouse em cima: Dentro clique na ferramenta visaul desejada/na área de ferramentas 
+de visualização clique em **formatar visual**/geral/dicas de ferramenta/opções/página/escolha a página criada como tooltip.
 
 
 
