@@ -27,11 +27,12 @@ O power bi disponibiliza três ambientes de trabalho;
     * Listar os indicadores que você quer apresentar.
     1. Criar visual
         * Insirir as ferramentas visuais (gráfico, tabela...) no ambiente exibição de relatórios.
-        * Gráfico de barras: Para mostrar ranking,
+        * Gráfico de barras e funil: Para mostrar ranking,
         * Gráfico de colunas, linhas, área: Para mostar valores ao longo do tempo.
-        * Gráfico de pizza: Para mostar porcentagem de até 4 elementos no máximo, acima de 4 elementos o gráfico fica poluido visualmente.
+        * Gráfico de pizza ou rosca: Para mostar porcentagem de até 4 elementos no máximo, acima de 4 elementos o gráfico fica poluido visualmente.
         * Cartão: Para mostrar um único valor (faturamento, produto mais vendido, total de clientes...)
         * Indicador: Para mostrar porcentagem.
+        * Gráfico de árvore hierarquica: Para representar cascata.
         * Segmentação de dados: Usado para filtrar dados (lista suspensa).
         * Arrastar a coluna desejada para dentro do campo do da ferramenta visual escolhida.
         * Somando os valores de uma coluna: dentro da aba "campo" escolha a operação de soma.
@@ -58,7 +59,7 @@ Para criar uma fórmula basta clicar com o botão direito em qualquer lugar da s
 
 4. Calculo entre equações DAX
     * Não precisa informar o nome da tabela, apenas o nome da função dax já criada.
-    * Exemplo: `Qualidade = ([Quant. produzida]) / ([Quant. produzida] + [Quant. rejeitada])`
+    * Exemplo: `Qualidade = ([nome_equação_1]) / ([nome_equação_2] + [nome_equação_3])`
 
 
 **Dica**: Aperte a tecla TAB para habilitar a fórmula depois de começar a digitar.
@@ -90,7 +91,23 @@ VendasAnoPassado = CALCULATE(SUM(Tabela[Vendas]), PREVIOUSYEAR(Tabela[Data]))
 ### Funções Lógicas:
 AltoDesempenho = IF(Tabela[Lucro] > 1000, "Bom", "Regular")
 
+## Criando Tooltip (Dica de Ferramenta’)
+O Tooltip é uma maneira de
+detalhar ainda mais
+uma informação de
+um gráfico sem que
+você precise alterar o seu Dashboard.
 
+O primeiro passo é **criar uma nova página** para
+que possamos criar um novo visual para a nossa
+Tooltip. Dentro dessa nova página nós vamos fazer 2
+configurações:
+1. Alterar em Formato > Informação da Página
+Alterar o Nome da Página (opcional)
+Ativar dica de ferramenta.
+2. Tamanho da Página
+Alterar tipo para ‘Dica de Ferramenta’ (Tooltip em
+Português).
 
 
 
