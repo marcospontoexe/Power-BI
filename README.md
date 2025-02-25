@@ -33,6 +33,7 @@ O power bi disponibiliza três ambientes de trabalho;
         * Cartão: Para mostrar um único valor (faturamento, produto mais vendido, total de clientes...)
         * Indicador: Para mostrar porcentagem.
         * Gráfico de árvore hierarquica: Para representar cascata.
+        Gráfico de cascata: Para representar valores negativos e positivos (acumulado) ao longo do tempo (candle)
         * Segmentação de dados: Usado para filtrar dados (lista suspensa).
         * Arrastar a coluna desejada para dentro do campo do da ferramenta visual escolhida.
         * Somando os valores de uma coluna: dentro da aba "campo" escolha a operação de soma.
@@ -82,8 +83,8 @@ Permite usar filtros junto com as fórmulas: Nome_qualquer = CALCULATE(expressã
 apenas as informações da coluna Ocorrência que são vazias (BLANK).
 * Horas Paradas = CALCULATE(SUM('BaseProdução'[Total Horas]), 'BaseProdução'[Ocorrência]<>BLANK()): Para segundo cálculo nós vamos somar as horas, só que agora vamos filtrar
 as informações da coluna Ocorrência que são diferentes de vazio (BLANK).
-
-Vendas2024 = CALCULATE(SUM(Tabela[Vendas]), YEAR(Tabela[Data]) = 2024)
+* Vendas2024 = CALCULATE(SUM('Tabela'[Vendas]), YEAR('Tabela'[Data]) = 2024)
+* curitibanos = CALCULATE(SUM('Tabela'[Cliente]), 'Tabela'[Cidade]="Curitiba")
 
 ### Funções de Tempo (Time Intelligence):
 VendasAnoPassado = CALCULATE(SUM(Tabela[Vendas]), PREVIOUSYEAR(Tabela[Data]))
